@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IncomePie</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-rotator" aria-hidden="true">
+      <div class="bg-layer bg-one"></div>
+      <div class="bg-layer bg-two"></div>
+      <div class="bg-layer bg-three"></div>
+      <div class="bg-layer bg-four"></div>
+    </div>
+
+    <main>
+      <section class="landing" id="landing">
+        <div class="landing-card hidden" id="landingCard">
+          <p class="brand-mark">IP</p>
+          <h1>IncomePie</h1>
+          <p class="landing-subtitle">Minimal monthly income map</p>
+          <div class="landing-actions" id="loginActions">
+            <button class="cta primary" id="loginReveal" type="button">Login</button>
+            <button class="cta ghost" id="exitBtn" type="button">Exit</button>
+          </div>
+          <form class="login-form hidden" id="loginForm">
+            <label class="field">
+              <span>Username</span>
+              <input type="text" id="username" autocomplete="username" required />
+            </label>
+            <label class="field">
+              <span>Password</span>
+              <input type="password" id="password" autocomplete="current-password" required />
+            </label>
+            <p class="form-error hidden" id="loginError">Enter a username and password to continue.</p>
+            <div class="landing-actions">
+              <button class="cta primary" id="loginBtn" type="submit">Continue</button>
+              <button class="cta ghost" id="cancelLogin" type="button">Back</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="dashboard hidden" id="dashboard">
+        <header class="dash-header">
+          <div class="dash-brand">
+            <p class="brand-mark small">IP</p>
+            <div>
+              <p class="brand-name">IncomePie</p>
+              <p class="brand-tag">March 2026</p>
+            </div>
+          </div>
+          <button class="cta ghost" id="backBtn">Log out</button>
+        </header>
+
+        <div class="dash-grid">
+          <div class="card chart-card">
+            <p class="card-title">Monthly Expenses</p>
+            <p class="card-subtitle">Total spending breakdown</p>
+            <div class="chart-wrap">
+              <div class="pie" id="expensesChart" role="img" aria-label="Monthly expenses pie chart"></div>
+              <div class="pie-center">
+                <p class="center-label">Expenses</p>
+                <p class="center-value" id="expensesValue">0%</p>
+              </div>
+            </div>
+            <div class="legend" id="expensesLegend"></div>
+          </div>
+
+          <div class="card chart-card">
+            <p class="card-title">Income Allocation</p>
+            <p class="card-subtitle">Savings vs disposable income</p>
+            <div class="chart-wrap">
+              <div class="pie" id="incomeChart" role="img" aria-label="Income allocation pie chart"></div>
+              <div class="pie-center">
+                <p class="center-label">Savings</p>
+                <p class="center-value" id="incomeValue">0%</p>
+              </div>
+            </div>
+            <div class="legend" id="incomeLegend"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal hidden" id="detailModal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="modal-title" id="modalTitle">Category</p>
+            <p class="modal-subtitle" id="modalSubtitle">Details</p>
+          </div>
+          <button class="cta ghost" id="closeModal">Close</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-metric">
+            <p class="metric-label">Current Share</p>
+            <p class="metric-value" id="modalCurrent">0%</p>
+          </div>
+          <div>
+            <p class="metric-label">Past Months Comparison</p>
+            <div class="history" id="modalHistory"></div>
+            <div class="history-bars" id="modalBars" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
